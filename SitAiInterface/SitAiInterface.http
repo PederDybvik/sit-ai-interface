@@ -1,0 +1,39 @@
+@SitAiInterface_HostAddress = http://localhost:5292
+
+### First question
+POST {{SitAiInterface_HostAddress}}/api/chat
+Content-Type: application/json
+
+{
+  "messages": [
+    { "role": "User", "content": "Hvor kan jeg leie studentbolig i Trondheim?" }
+  ]
+}
+
+###
+
+### Follow-up question
+POST {{SitAiInterface_HostAddress}}/api/chat
+Content-Type: application/json
+
+{
+  "messages": [
+    { "role": "User",      "content": "Hvor kan jeg leie studentbolig i Trondheim?" },
+    { "role": "Assistant", "content": "SIT tilbyr studentboliger i Trondheim på steder som Berg Studentby og Nedre Berg..." },
+    { "role": "User",      "content": "Hva koster det?" }
+  ]
+}
+
+###
+
+### Off-topic (should be rejected)
+POST {{SitAiInterface_HostAddress}}/api/chat
+Content-Type: application/json
+
+{
+  "messages": [
+    { "role": "User", "content": "What is the weather in Oslo today?" }
+  ]
+}
+
+###

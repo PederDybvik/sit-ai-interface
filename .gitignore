@@ -1,0 +1,15 @@
+# .NET build artifacts
+bin/
+obj/
+
+# Secrets — never commit API keys
+SitAiInterface/appsettings.Development.json
+
+# macOS
+.DS_Store
+
+# Rider / VS / VS Code
+.idea/
+.vs/
+.vscode/
+*.user
